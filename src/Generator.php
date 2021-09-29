@@ -15,7 +15,7 @@ class Generator
                 'image_size' => isset($opts['targetSize']) ? $opts['targetSize'] : '1200x630',
                 'font_size' => isset($opts['fontSize']) ? $opts['fontSize'] : 55,
                 'text_color' => $opts['text_color'] ? $opts['text_color'] : '#111',
-                'background_color' => $opts['background_color'] ? $opts['background_color'] : 'linear-gradient(119.54deg, #eaf1f5 29.69%, #f2f6f9 81.65%)',
+                'background' => $opts['background'] ? $opts['background'] : 'linear-gradient(119.54deg, #eaf1f5 29.69%, #f2f6f9 81.65%)',
                 'path_to_font' => __DIR__ . '/../resources/fonts/inter-800.ttf',
             ]);
         } catch(\Exception $e) {
@@ -149,7 +149,7 @@ class Generator
         $image_size = $opts['image_size'];
         $font_size = $opts['font_size'];
         $text_color = $opts['text_color'];
-        $background_color = $opts['background_color'];
+        $background = $opts['background'];
         $path_to_font = $opts['path_to_font'];
 
         // Make text magic
@@ -162,7 +162,7 @@ class Generator
         $imageResource = imagecreate($dimensions[0], $dimensions[1]);
 
         // Allocate both the background + foreground (text) color
-        $allocatedBgColor = self::allocateColor($imageResource, $background_color);
+        $allocatedBgColor = self::allocateColor($imageResource, $background);
         $allocatedFgColor = self::allocateColor($imageResource, $text_color);
 
         if ($path_to_font !== null && file_exists($path_to_font)) {

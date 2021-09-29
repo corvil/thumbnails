@@ -942,14 +942,14 @@ var hex = function hex(orig) {
 
 var updateCards = function updateCards(opts) {
   var text_color = opts.text_color,
-      background_color = opts.background_color;
+      background = opts.background;
 
-  if (text_color && text_color !== '' && background_color && background_color !== '') {
+  if (text_color && text_color !== '' && background && background !== '') {
     var imageContainers = document.querySelectorAll('.thumbnails-social-cards--card-image');
     imageContainers.forEach(function (imageContainer) {
       var imageURL = imageContainer.getAttribute('data-url');
       imageContainer.innerHTML = '';
-      imageContainer.innerHTML = "<img src=\"".concat(imageURL, "/").concat(hex(text_color), "/").concat(hex(background_color), "\">");
+      imageContainer.innerHTML = "<img src=\"".concat(imageURL, "/").concat(hex(text_color), "/").concat(hex(background), "\">");
     });
   }
 };
@@ -973,7 +973,7 @@ Statamic.booting(function () {
           if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
             updateCards({
               text_color: document.querySelector('.publish-field__text_color .pickr button').style.color,
-              background_color: document.querySelector('.publish-field__background_color .pickr button').style.color
+              background: document.querySelector('.publish-field__background .pickr button').style.color
             });
           }
         }

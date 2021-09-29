@@ -8,5 +8,5 @@ Route::namespace('\CodeByFlame\Thumbnails\Http\Controllers\Web')
     ->group(function () {
         Route::get('thumbnails/{id}.png', 'ThumbnailsController@index');
         Route::get('thumbnails/demo', 'ThumbnailsController@demo');
-        Route::get('thumbnails/demo/{text_color}/{background_color}', 'ThumbnailsController@demo');
+        Route::get('thumbnails/demo/{text_color}/{background}', 'ThumbnailsController@demo');
     });

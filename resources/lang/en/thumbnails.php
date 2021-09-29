@@ -5,7 +5,7 @@ return [
         'text_color' => [
             'display' => 'Text color',
         ],
-        'background_color' => [
+        'background' => [
             'display' => 'Background color',
         ],
     ],

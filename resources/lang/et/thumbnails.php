@@ -5,7 +5,7 @@ return [
         'text_color' => [
             'display' => 'Teksti värv',
         ],
-        'background_color' => [
+        'background' => [
             'display' => 'Tausta värv',
         ],
     ],

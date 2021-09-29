@@ -32,16 +32,16 @@ const hex = (orig) => {
  * @param opts
  */
 const updateCards = (opts) => {
-    const { text_color, background_color } = opts;
+    const { text_color, background } = opts;
 
-    if (text_color && text_color !== '' && background_color && background_color !== '') {
+    if (text_color && text_color !== '' && background && background !== '') {
         const imageContainers = document.querySelectorAll('.thumbnails-social-cards--card-image');
 
         imageContainers.forEach(imageContainer => {
             const imageURL = imageContainer.getAttribute('data-url');
 
             imageContainer.innerHTML = '';
-            imageContainer.innerHTML = `<img src="${imageURL}/${hex(text_color)}/${hex(background_color)}">`;
+            imageContainer.innerHTML = `<img src="${imageURL}/${hex(text_color)}/${hex(background)}">`;
         })
     }
 }
@@ -54,7 +54,7 @@ Statamic.booting(() => {
                 if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
                     updateCards({
                         text_color: document.querySelector('.publish-field__text_color .pickr button').style.color,
-                        background_color: document.querySelector('.publish-field__background_color .pickr button').style.color
+                        background: document.querySelector('.publish-field__background .pickr button').style.color
                     })
                 }
             }

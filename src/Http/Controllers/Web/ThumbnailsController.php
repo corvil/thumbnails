@@ -23,12 +23,12 @@ class ThumbnailsController extends LaravelController
             $entry ? $entry->get('title') : 'Page not found',
             [
                 'text_color' => $settings->get('text_color')->raw(),
-                'background_color' => $settings->get('background_color')->raw()
+                'background' => $settings->get('background')->raw()
             ],
         );
     }
 
-    public function demo($text_color = null, $background_color = null)
+    public function demo($text_color = null, $background = null)
     {
         $settings = self::getSettingsBlueprintWithValues();
 
@@ -36,7 +36,7 @@ class ThumbnailsController extends LaravelController
             'Lorem ipsum dolor sit amet',
             [
                 'text_color' => $text_color ? $text_color : $settings->get('text_color')->raw(),
-                'background_color' => $background_color ? $background_color : $settings->get('background_color')->raw(),
+                'background' => $background ? $background : $settings->get('background')->raw(),
                 'targetSize' => '600x315',
                 'fontSize' => 23
             ]
