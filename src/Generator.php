@@ -15,7 +15,7 @@ class Generator
                 'image_size' => isset($opts['targetSize']) ? $opts['targetSize'] : '1200x630',
                 'font_size' => isset($opts['fontSize']) ? $opts['fontSize'] : 55,
                 'text_color' => $opts['text_color'] ? $opts['text_color'] : '#111',
-                'background_color' => $opts['background_color'] ? $opts['background_color'] : '#fff',
+                'background_color' => $opts['background_color'] ? $opts['background_color'] : 'linear-gradient(119.54deg, #eaf1f5 29.69%, #f2f6f9 81.65%)',
                 'path_to_font' => __DIR__ . '/../resources/fonts/inter-800.ttf',
             ]);
         } catch(\Exception $e) {
